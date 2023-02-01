@@ -21,6 +21,9 @@ set(PROJECT_SOURCES
         MainWindow.ui
         MultiTypeItemModel.cpp
         MultiTypeItemModel.h
+        MultiTypeItemDelegate.cpp
+        MultiTypeItemDelegate.h
+        ItemModelDefinitions.h
         ${TS_FILES}
 )
 

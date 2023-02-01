@@ -3,15 +3,7 @@
 
 #include <QAbstractItemModel>
 #include <QObject>
-
-enum class ItemTypes : int
-{
-    String,
-    Integer,
-    Double,
-    Boolean,
-    MultiChoise
-};
+#include "ItemModelDefinitions.h"
 
 static QMap<ItemTypes, QString> ItemTypesString =
     {
@@ -28,7 +20,7 @@ static QMap<ItemTypes, QVariant> ItemTypesDefaultValue =
         { ItemTypes::Integer, QVariant(0) },
         { ItemTypes::Double, QVariant(0.0) },
         { ItemTypes::Boolean, QVariant(false) },
-        { ItemTypes::MultiChoise, QVariant(0) }
+        { ItemTypes::MultiChoise, QVariantList() }
     };
 
 static QMap<ItemTypes, QVariant> ItemTypesDefaultEdit =
@@ -38,6 +30,15 @@ static QMap<ItemTypes, QVariant> ItemTypesDefaultEdit =
         { ItemTypes::Double, QVariant(0.0) },
         { ItemTypes::Boolean, QVariant(false) },
         { ItemTypes::MultiChoise, QVariantList() }
+    };
+
+static QMap<ItemTypes, enum EditorType> ItemTypesDefaultEditor =
+    {
+        { ItemTypes::String, EditorType::LineEdit },
+        { ItemTypes::Integer, EditorType::SpinBox },
+        { ItemTypes::Double, EditorType::DoubleSpinBox },
+        { ItemTypes::Boolean, EditorType::CheckBox },
+        { ItemTypes::MultiChoise, EditorType::ComboBox }
     };
 
 class MultiTypeItemModel : public QAbstractItemModel
@@ -53,9 +54,9 @@ public:
 //    bool setHeaderData(int section, Qt::Orientation orientation, const QVariant &value, int role = Qt::EditRole) override;
 
     // Basic functionality:
-//    QModelIndex index(int row, int column,
-//                      const QModelIndex &parent = QModelIndex()) const override;
-//    QModelIndex parent(const QModelIndex &index) const override;
+    QModelIndex index(int row, int column,
+                      const QModelIndex &parent = QModelIndex()) const override;
+    QModelIndex parent(const QModelIndex &index) const override;
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     int columnCount(const QModelIndex &parent = QModelIndex()) const override;
