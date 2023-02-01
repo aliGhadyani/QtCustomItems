@@ -364,5 +364,5 @@ void MultiTypeItemDelegate::setModelData(QWidget *editor, QAbstractItemModel *mo
 
 bool MultiTypeItemDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
-    return true;
+    return QStyledItemDelegate::editorEvent(event, model, option, index);
 }

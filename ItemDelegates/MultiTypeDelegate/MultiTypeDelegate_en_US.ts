@@ -9,12 +9,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="MainWindow.ui" line="39"/>
+        <location filename="MainWindow.ui" line="46"/>
         <source>Add Row</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="MainWindow.ui" line="46"/>
+        <location filename="MainWindow.ui" line="53"/>
         <source>Remove Row</source>
         <translation type="unfinished"></translation>
     </message>
